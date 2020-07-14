@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apLogin" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edufarm.FXMLLoginController">
+   <children>
+      <ImageView fitHeight="1096.0" fitWidth="947.0" layoutX="999.0" layoutY="-67.0" pickOnBounds="true" y="64.0">
+         <image>
+            <Image url="@../Gambar/photo-of-green-field-near-mountains-974314%20(1).jpg" />
+         </image></ImageView>
+      <Label layoutX="14.0" layoutY="14.0" text="eduFarm">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="470.0" layoutY="429.0" text="Nama Pengguna">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="503.0" layoutY="580.0" text="Kata Sandi">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="394.0" layoutY="206.0" text="Masuk ke eduFarm" textFill="#b8a95d">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="1315.0" layoutY="534.0" text="mulai petualangan bersama eduFarm!" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1304.0" layoutY="504.0" text="Masuk dengan informasi pengguna dan" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1406.0" layoutY="414.0" text="Halo" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="72.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfUsername" alignment="CENTER" layoutX="400.0" layoutY="474.0" prefHeight="51.0" prefWidth="317.0" promptText="Masukkan Nama Pengguna">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password" alignment="CENTER" layoutX="400.0" layoutY="625.0" prefHeight="51.0" prefWidth="317.0" promptText="Masukkan Kata Sandi">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </PasswordField>
+      <Button layoutX="1402.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleButtonDaftar" prefHeight="51.0" prefWidth="127.0" style="-fx-background-color: B8A95D; -fx-background-radius: 20;" text="Daftar" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="485.0" layoutY="719.0" mnemonicParsing="false" onAction="#handleButtonMasuk" prefHeight="51.0" prefWidth="143.0" style="-fx-background-color: B8A95D; -fx-background-radius: 20;" text="Masuk" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

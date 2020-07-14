@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="apAwal" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edufarm.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Gambar/photo-of-green-field-near-mountains-974314.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.12" contrast="-0.3" />
+         </effect>
+      </ImageView>
+      <Button layoutX="1113.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleButtonLogin" prefHeight="230.0" prefWidth="230.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 50;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Gambar/login.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="565.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleButtonPanduan" prefHeight="230.0" prefWidth="230.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 50;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <graphic>
+            <ImageView fitHeight="184.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Gambar/farmers.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label fx:id="label6" layoutX="512.0" layoutY="819.0" text="Panduan Bertani" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="label8" layoutX="1175.0" layoutY="819.0" text="Masuk" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Button layoutX="251.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleButtonMulai" prefHeight="51.0" prefWidth="150.0" style="-fx-background-color: B8A95D; -fx-background-radius: 50;" text="Mulai..." textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="label1" layoutX="246.0" layoutY="193.0" prefHeight="75.0" prefWidth="440.0" text="Mulailah pertanianmu" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="label7" layoutX="470.0" layoutY="893.0" text="&quot;Informasi mengenai panduan bertani secara efektif.&quot;" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="label9" layoutX="979.0" layoutY="893.0" text="&quot;Menjadi bagian dari kami dan dapatkan fitur unggulan lainnya.&quot;" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="label4" layoutX="251.0" layoutY="458.0" text="Untuk tetap terhubung dengan eduFarm, " textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="label2" layoutX="246.0" layoutY="247.0" text="dengan cara yang lebih" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="label3" layoutX="248.0" layoutY="308.0" text="mudah &amp; efektif" textFill="WHITE">
+         <font>
+            <Font name="Rage Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="label5" layoutX="251.0" layoutY="481.0" text="silahkan daftarkan akun atau masuk dengan info pribadi" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="label" layoutX="996.0" layoutY="263.0" />
+   </children>
+</AnchorPane>

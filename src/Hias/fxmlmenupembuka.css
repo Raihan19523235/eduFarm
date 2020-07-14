@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 19, 2020, 8:24:36 AM
+    Author     : PREDATOR
+*/
+.root{
+    -fx-background-color: #FFFFFF;
+/*    -fx-background-image:url('ikhlas.jpg');*/
+    
+}
+/*.button{
+    -fx--radius: 100%;
+    -fx-opacity: 0.5;
+}*/
+.label1{
+    -fx-font-family: "Satisfy";
+}
