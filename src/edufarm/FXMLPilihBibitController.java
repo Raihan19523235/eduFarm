@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
@@ -21,7 +23,12 @@ import javafx.scene.layout.AnchorPane;
  * @author PREDATOR
  */
 public class FXMLPilihBibitController implements Initializable {
-
+    //Rania Putri Savira 19523036
+    //Jasmine Erina Firdaus 19523095
+    //Khoiri Rochmanila 19523142
+    //Raihan Digo Saputra 19523235
+    private String username;
+    
     @FXML
     private Label lbPanduan;
     
@@ -29,17 +36,38 @@ public class FXMLPilihBibitController implements Initializable {
     private AnchorPane apBibit;
     
     @FXML
+    private Button btCentang;
+    
+    @FXML
+    private Button btHasil;
+    
+    @FXML
     private void handleButtonPanduan(ActionEvent event) throws IOException {
-        AnchorPane panduan = FXMLLoader.load(getClass().getResource("FXMLPanduan.fxml"));
-        apBibit.getChildren().setAll(panduan);
+        FXMLLoader uiPanduan = new FXMLLoader(getClass().getResource("FXMLPanduan.fxml"));
+        Parent root = (Parent) uiPanduan.load();            
+                
+        FXMLPanduanController panduan = uiPanduan.getController();
+        panduan.setNama(username);        
+                
+        btCentang.getScene().setRoot(root); 
     }
     
     @FXML
     private void handleButtonHasil(ActionEvent event) throws IOException {
-        AnchorPane hasil = FXMLLoader.load(getClass().getResource("FXMLHasil.fxml"));
-        apBibit.getChildren().setAll(hasil);
+        FXMLLoader uiHasil = new FXMLLoader(getClass().getResource("FXMLHasil.fxml"));
+        Parent root = (Parent) uiHasil.load();            
+                
+        FXMLHasilController hasil = uiHasil.getController();
+        hasil.setNama(username);        
+                
+        btHasil.getScene().setRoot(root);
     }
     
+    @FXML
+    void handleButtonLogout(ActionEvent event) throws IOException {
+        AnchorPane awal = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        apBibit.getChildren().setAll(awal);
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -54,6 +82,15 @@ public class FXMLPilihBibitController implements Initializable {
                     "Anda harus memastikan kondisi buah yang tumbuh memiliki ukuran yang normal, \nwarna kulit yang cerah, dan rasanya sesuai dengan jenis buah tersebut. ";
         
         lbPanduan.setText(kalimat);
-    }    
+    }
+    
+    public String getNama() {
+        return username;
+    }
+
+    public void setNama(String username) {
+        this.username = username;
+        
+    }
     
 }

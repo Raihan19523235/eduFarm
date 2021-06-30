@@ -27,7 +27,7 @@ public class HasilList {
         this.listData = listData;
     }
     
-    public void setData(String nama, int hasil, String bulan , String tanggal) {
-        listData.add(new Hasil(nama, hasil, bulan, tanggal));  
+    public void setData(String nama, int hasil, String tanggal) {
+        listData.add(new Hasil(nama, hasil, tanggal));  
     }
 }

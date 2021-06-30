@@ -17,6 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -33,6 +34,7 @@ import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -40,12 +42,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author PREDATOR
  */
 public class FXMLSistemAdminController implements Initializable {
+    //Rania Putri Savira 19523036
+    //Jasmine Erina Firdaus 19523095
+    //Khoiri Rochmanila 19523142
+    //Raihan Digo Saputra 19523235
     AnggotaList list;
     int id = 0;
     String up,uNama,uNoHp,uTanggal,uJekel,uUsername,uPassword,hapus;
     String namaLengkap,nomorHP,tanggal,username,jekel,password;
     private boolean selected = false;
-
+    
+    
 //    Anggota[] ang;
 //    List<String> namaAL = new ArrayList();
 //    List<String> noHpAL = new ArrayList();
@@ -136,34 +143,58 @@ public class FXMLSistemAdminController implements Initializable {
     @FXML
     private CheckBox cbKet2;
     
+    @FXML
+    private AnchorPane apAdmin;
+    
+    @FXML
+    private Button btOut;
+    
     Anggota anggota;
     private ObservableList <Anggota> data = FXCollections.observableArrayList();
     TableViewSelectionModel pilih;
     
     @FXML
+    void handleButtonLogout(ActionEvent event) throws IOException {
+        AnchorPane awal = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        apAdmin.getChildren().setAll(awal);
+    }
+    
+    @FXML
     private void handleButtonTambah(ActionEvent event) {
-        namaLengkap = tfNama.getText();
-        jekel = null;
-        if(rbJekelLaki.isSelected()){
-            jekel = "Pria";
-        }else if(rbJekelPerempuan.isSelected()){
-            jekel = "Wanita";
-        }
-        nomorHP = tfHp.getText();
-        tanggal = dpLahir.getValue().toString();
-        username = tfUserId.getText();
-        password = pfPassword.getText();
-        id++;
+        try{
+            namaLengkap = tfNama.getText();
+            jekel = null;
+            if(rbJekelLaki.isSelected()){
+                jekel = "Pria";
+            }else if(rbJekelPerempuan.isSelected()){
+                jekel = "Wanita";
+            }
+            nomorHP = tfHp.getText();
+            tanggal = dpLahir.getValue().toString();
+            username = tfUserId.getText();
+            password = pfPassword.getText();
+            id++;
 
-        data.add(new Anggota(id,namaLengkap,jekel,nomorHP,tanggal,username,password));
-        list.setData(id, namaLengkap, jekel, nomorHP, tanggal, username, password);
-        saveData(data);
-        if(rbJekelLaki.isSelected()){
-            selected = true;
+            if(namaLengkap.equals("") || jekel.equals("") || nomorHP.equals("") || tanggal.equals("") 
+                || username.equals("") || password.equals("")){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Perhatian!!!");
+                alert.setHeaderText("Silahkan lengkapi data diri");
+                alert.setContentText("Untuk mendaftarkan akun silahkan lengkapi data diri");
+                alert.showAndWait();
+            }else{
+                data.add(new Anggota(id,namaLengkap,jekel,nomorHP,tanggal,username,password));
+//                list.setData(id, namaLengkap, jekel, nomorHP, tanggal, username, password);
+                saveData(data);
+                clearField();    
+            }    
+        }catch(Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Perhatian!!!");
+            alert.setHeaderText("Silahkan lengkapi data diri");
+            alert.setContentText("Untuk mendaftarkan akun silahkan lengkapi data diri anda");
+            alert.showAndWait();
         }
-        clearField();
-        
-        
     }
     
     public void saveData(ObservableList<Anggota> data){

@@ -23,7 +23,10 @@ import javafx.stage.Stage;
  * @author PREDATOR
  */
 public class FXMLDocumentController implements Initializable {
-    
+    //Rania Putri Savira 19523036
+    //Jasmine Erina Firdaus 19523095
+    //Khoiri Rochmanila 19523142
+    //Raihan Digo Saputra 19523235
     @FXML
     private Label label;
     
@@ -60,10 +63,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonPanduan(ActionEvent event) throws IOException {
-//        AnchorPane panduan = FXMLLoader.load(getClass().getResource("FXMLPanduan.fxml"));
-//        apAwal.getChildren().setAll(panduan);
-        AnchorPane sistemAdmin = FXMLLoader.load(getClass().getResource("FXMLSistemAdmin.fxml"));
-        apAwal.getChildren().setAll(sistemAdmin);
+        AnchorPane panduan = FXMLLoader.load(getClass().getResource("FXMLPanduan_1.fxml"));
+        apAwal.getChildren().setAll(panduan);
 
     }
     

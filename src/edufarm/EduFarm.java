@@ -16,11 +16,13 @@ import javafx.stage.Stage;
  * @author PREDATOR
  */
 public class EduFarm extends Application {
-    Connection conn = null;
-    
+    //Rania Putri Savira 19523036
+    //Jasmine Erina Firdaus 19523095
+    //Khoiri Rochmanila 19523142
+    //Raihan Digo Saputra 19523235
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLSistemAdmin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
         stage.setScene(scene);

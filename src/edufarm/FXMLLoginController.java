@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,9 +22,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -37,7 +40,11 @@ import javax.naming.spi.DirStateFactory;
  * @author PREDATOR
  */
 public class FXMLLoginController implements Initializable {
-    
+    //Rania Putri Savira 19523036
+    //Jasmine Erina Firdaus 19523095
+    //Khoiri Rochmanila 19523142
+    //Raihan Digo Saputra 19523235
+    private String username;
     AnggotaList list;
     @FXML
     private TextField tfUsername;
@@ -47,30 +54,66 @@ public class FXMLLoginController implements Initializable {
     
     @FXML
     private AnchorPane apLogin;
+    
+    @FXML
+    private Button btMasuk;
+    
     String notif;
-//    PreparedStatement pst = null;
-//    Connection conn = connection.koneksi();
-//    ResultSet rs = null;
+    
     ObservableList<Anggota> data = FXCollections.observableArrayList();
-    Anggota[] anggota;
+    ObservableList<Anggota> dataAdmin = FXCollections.observableArrayList();
+//    Anggota[] anggota;
     
     
     @FXML
     private void handleButtonMasuk(ActionEvent event) throws IOException{        
-        String username = tfUsername.getText();
+        username = tfUsername.getText();
         String pass = password.getText();
         int i = 0;
-        while(data.get(i) != null){
+        int masuk = 0;
+        
+        for(Anggota dt : data ){
             if(data.get(i).getUsername().equals(username) && data.get(i).getPassword().equals(pass)){
-                AnchorPane menuUtama = FXMLLoader.load(getClass().getResource("FXMLMenuUtama.fxml"));
-                apLogin.getChildren().setAll(menuUtama);
+                System.out.println("Masuk sebagai anggota");
+                
+                FXMLLoader uiMenuUtama = new FXMLLoader(getClass().getResource("FXMLMenuUtama.fxml"));
+                Parent root = (Parent) uiMenuUtama.load();            
+                
+                FXMLMenuUtamaController menu = uiMenuUtama.getController();
+                menu.setNama(username);        
+                
+                btMasuk.getScene().setRoot(root); 
+                masuk = 1;
             }
             System.out.println(data.get(i).getUsername() +" "+ data.get(i).getPassword());
             i++;
+        }      
+        i=0;
+        for(Anggota dt : dataAdmin ){
+            if(dataAdmin.get(i).getUsername().equals(username) && dataAdmin.get(i).getPassword().equals(pass)){
+                System.out.println("Masuk sebagai Admin");
+                       
+                Parent sistemAdmin = FXMLLoader.load(getClass().getResource("FXMLSistemAdmin.fxml"));
+                apLogin.getChildren().setAll(sistemAdmin);
+                masuk = 1;                
+            }
+            System.out.println(dataAdmin.get(i).getUsername() +" "+ dataAdmin.get(i).getPassword());
+            i++;
         }
-            
-        
-        
+        System.out.println(masuk);
+        if(masuk == 0){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("GAGAL!!!");
+                alert.setHeaderText("Username atau Password salah");
+                alert.setContentText("Untuk masuk silahkan masukan username dan password dengan benar");
+                alert.showAndWait();
+        }
+    }
+    
+    @FXML
+    private void handleButtonHome(ActionEvent event) throws IOException {
+        AnchorPane awal = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        apLogin.getChildren().setAll(awal);
     }
     
     @FXML
@@ -82,10 +125,12 @@ public class FXMLLoginController implements Initializable {
     
     private void loadData() {
         XStream xstream = new XStream(new StaxDriver());
-        FileInputStream f =null;
+        FileInputStream f = null;
+        FileInputStream fAdmin = null;
         
         try {
             f = new FileInputStream("Anggota.xml");
+            fAdmin = new FileInputStream("Admin.xml");
             
             int isi;
             char c;
@@ -96,12 +141,26 @@ public class FXMLLoginController implements Initializable {
                 xml = xml + c;
             }
             
+            int isi1;
+            char c1;
+            String xml1 = "";
+            
+            while((isi1 = fAdmin.read() )!=-1){
+                c1 = (char) isi1;
+                xml1 = xml1 + c1;
+            }
+            
            AnggotaList dataWrap = new AnggotaList();
            dataWrap = (AnggotaList) xstream.fromXML(xml);
-//           anggota = (Anggota[]) xstream.fromXML(xml);
+           
+           AnggotaList dataWrap1 = new AnggotaList();
+           dataWrap1 = (AnggotaList) xstream.fromXML(xml1);
            
            data.clear();
            data.addAll(dataWrap.getListData());
+           
+           dataAdmin.clear();
+           dataAdmin.addAll(dataWrap1.getListData());
         }
         
         catch(Exception e){
@@ -111,6 +170,13 @@ public class FXMLLoginController implements Initializable {
             if(f!=null){
                 try{
                     f.close();
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+            }else if(fAdmin!=null){
+                try{
+                    fAdmin.close();
                 }
                 catch(IOException e){
                     e.printStackTrace();

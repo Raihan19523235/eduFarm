@@ -4,7 +4,6 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -15,21 +14,11 @@
 
 <AnchorPane id="AnchorPane" fx:id="apHasil" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edufarm.FXMLHasilController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="eduFarm">
+      <Label layoutX="14.0" layoutY="20.0" text="eduFarm">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="702.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: FFFFFF;" text="Panduan Bertani" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1074.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: FFFFFF;" text="Hasil" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="1057.0" fitWidth="465.0" layoutY="76.0" pickOnBounds="true">
          <image>
             <Image url="@../Gambar/pexels-photo-1400172.jpeg" />
@@ -45,17 +34,12 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="39.0" layoutY="524.0" text="mengetahui hasil panen pada" textFill="WHITE">
+      <Label layoutX="62.0" layoutY="524.0" text="mengetahui hasil panen.&quot;" textFill="WHITE">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="119.0" layoutY="566.0" text="tiap bulannya.&quot;" textFill="WHITE">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
-      <BarChart fx:id="bcHasil" alternativeColumnFillVisible="true" animated="false" layoutX="504.0" layoutY="97.0" prefHeight="578.0" prefWidth="1352.0" title="Hasil Panen">
+      <BarChart fx:id="bcHasil" alternativeColumnFillVisible="true" animated="false" layoutX="504.0" layoutY="87.0" prefHeight="588.0" prefWidth="1352.0" title="Grafik Hasil Panen">
          <xAxis>
             <CategoryAxis fx:id="cSayur" side="BOTTOM" />
          </xAxis>
@@ -63,52 +47,84 @@
             <NumberAxis fx:id="nSayur" side="LEFT" />
          </yAxis>
       </BarChart>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="702.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleButtonPanduan" style="-fx-background-color: FFFFFF;" text="Panduan Bertani" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1074.0" layoutY="31.0" mnemonicParsing="false" style="-fx-background-color: FFFFFF;" text="Hasil" textAlignment="CENTER">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
       <Label layoutX="504.0" layoutY="689.0" prefHeight="445.0" prefWidth="1352.0" style="-fx-background-color: #94C07F;" />
-      <TextField fx:id="tfSayur" layoutX="563.0" layoutY="735.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;">
+      <TextField fx:id="tfSayur" layoutX="731.0" layoutY="749.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="tfHasil" layoutX="563.0" layoutY="811.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;">
+      <TextField fx:id="tfHasil" layoutX="731.0" layoutY="825.0" prefHeight="31.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Label layoutX="563.0" layoutY="708.0" text="Nama Sayur">
+      <Label layoutX="731.0" layoutY="722.0" text="Nama Sayur">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="563.0" layoutY="784.0" text="Hasil panen">
+      <Label layoutX="731.0" layoutY="798.0" text="Hasil panen (dalam Kg)">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="600.0" layoutY="952.0" mnemonicParsing="false" onAction="#handleButtonTambah" prefHeight="51.0" prefWidth="185.0" style="-fx-background-radius: 50; -fx-background-color: #f1c40f;" text="Tambah" textFill="WHITE">
+      <Button layoutX="731.0" layoutY="967.0" mnemonicParsing="false" onAction="#handleButtonTambah" prefHeight="51.0" prefWidth="258.0" style="-fx-background-radius: 50; -fx-background-color: #f1c40f;" text="Tambah" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <DatePicker fx:id="dpTglPanen" layoutX="563.0" layoutY="883.0" prefHeight="39.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;" />
-      <Label layoutX="563.0" layoutY="857.0" text="Tanggal">
+      <DatePicker fx:id="dpTglPanen" layoutX="731.0" layoutY="897.0" prefHeight="39.0" prefWidth="258.0" style="-fx-background-color: FFFFFF;" />
+      <Label layoutX="731.0" layoutY="871.0" text="Tanggal">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="cbBulan" layoutX="1083.0" layoutY="736.0" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: FFFFFF;" />
-      <Button layoutX="1094.0" layoutY="786.0" mnemonicParsing="false" onAction="#handleButtonTambah" prefHeight="51.0" prefWidth="185.0" style="-fx-background-radius: 50; -fx-background-color: #f1c40f;" text="Tampilkan" textFill="WHITE">
+      <Button layoutX="1236.0" layoutY="906.0" mnemonicParsing="false" onAction="#handleButtonDetail" prefHeight="51.0" prefWidth="350.0" style="-fx-background-radius: 50; -fx-background-color: #f1c40f;" text="Lihat Detail" textFill="WHITE">
          <font>
             <Font size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="label" layoutX="1151.0" layoutY="931.0" />
+      <Label layoutX="1297.0" layoutY="783.0" text="Untuk melihat detail hasil">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1297.0" layoutY="811.0" text="panen sebelumnya dapat ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1290.0" layoutY="842.0" text="dilakukan dengan mengklik">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="1325.0" layoutY="869.0" text="tombol dibawah ini">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="1742.0" layoutY="12.0" mnemonicParsing="false" onAction="#handleButtonLogout" prefHeight="59.0" prefWidth="132.0" style="-fx-background-color: ffffff;" text="Logout">
+         <graphic>
+            <ImageView fitHeight="47.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Gambar/logout.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btPanduan" alignment="CENTER" contentDisplay="CENTER" layoutX="660.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleButtonPanduan" style="-fx-background-color: FFFFFF;" text="Panduan Bertani" textAlignment="CENTER">
+         <font>
+            <Font name="Rage Italic" size="40.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1209.0" layoutY="7.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="132.0" style="-fx-background-color: FFFFFF;" text="Hasil" textAlignment="CENTER">
+         <font>
+            <Font name="Rage Italic" size="40.0" />
          </font>
       </Button>
    </children>

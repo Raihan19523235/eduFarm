@@ -95,7 +95,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="1387.0" layoutY="839.0" mnemonicParsing="false" onAction="#handleButtonDaftar" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: B8A95D; -fx-background-radius: 20;" text="Daftar" textFill="WHITE">
+      <Button fx:id="btDaftar" layoutX="1387.0" layoutY="839.0" mnemonicParsing="false" onAction="#handleButtonDaftar" prefHeight="51.0" prefWidth="153.0" style="-fx-background-color: B8A95D; -fx-background-radius: 20;" text="Daftar" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
@@ -139,5 +139,14 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
+      <Button layoutX="1758.0" layoutY="912.0" mnemonicParsing="false" onAction="#handleButtonHome" prefHeight="99.0" prefWidth="112.0" style="-fx-background-color: FFFFFF;">
+         <graphic>
+            <ImageView fitHeight="97.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Gambar/home-run.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

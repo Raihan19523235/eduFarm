@@ -16,16 +16,15 @@ public class Hasil {
     private SimpleStringProperty nama,tanggal,bulan;
     private SimpleIntegerProperty hasil;
     
-    public Hasil(String nama, int hasil, String bulan , String tanggal) {
+    public Hasil(String nama, int hasil, String tanggal) {
         this.nama = new SimpleStringProperty(nama);
         this.hasil = new SimpleIntegerProperty(hasil);
-        this.bulan = new SimpleStringProperty(bulan);
         this.tanggal = new SimpleStringProperty(tanggal);
         
     }
 
     public Hasil() {
-        this("", 0, "", "");
+        this("", 0, "");
     }
     
     public String getNama() {
@@ -42,14 +41,6 @@ public class Hasil {
 
     public void setHasil(int hasil) {
         this.hasil.set(hasil);
-    }
-    
-    public String getBulan() {
-        return bulan.get();
-    }
-
-    public void setBulan(String bulan) {
-        this.bulan.set(bulan);
     }
     
     public String getTanggal() {
